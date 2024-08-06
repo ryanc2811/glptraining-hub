@@ -1,0 +1,63 @@
+name: Build Workflow
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-push-image:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+
+      - name: Authenticate with Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}"
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Install kubectl
+        run: gcloud components install kubectl
+
+      - name: Check kubectl version
+        run: kubectl version --client
+
+      - name: Use gcloud CLI
+        run: gcloud info
+
+      - name: Docker auth
+        run: gcloud auth configure-docker europe-west4-docker.pkg.dev --quiet
+
+      - name: Set version
+        id: version
+        run: echo "VERSION=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Build and push the docker image
+        env:
+          GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
+          VERSION: ${{ steps.version.outputs.VERSION }}
+        run: |
+          DOCKER_IMAGE="europe-west4-docker.pkg.dev/${GOOGLE_PROJECT}/glp-tna/recommendations:${VERSION}"
+          gcloud auth configure-docker europe-west4-docker.pkg.dev
+          docker build --platform linux/amd64 -t $DOCKER_IMAGE ./Docker
+          docker push $DOCKER_IMAGE
+
+      - name: Show disk usage before cleanup
+        run: df -h
+
+      - name: Clean up Docker images
+        run: |
+          echo "Starting Docker image cleanup..."
+          docker image prune -a -f
+          echo "Docker image cleanup completed."
+
+      - name: Clean up Docker system
+        run: |
+          echo "Starting Docker system cleanup..."
+          docker system prune -a -f
+          echo "Docker system cleanup completed."
