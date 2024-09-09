@@ -1,7 +1,7 @@
 // src/App.js
 // ... (other imports)
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Questionnaire from './components/Questionnaire/Questionnaire';
+import LandingPage from './components/LandingPage/LandingPage';
 import Register from './components/Register';
 import PrivacyPolicy from './components/RegisterForm/PrivacyPolicy';
 import GDPRStatement from './components/RegisterForm/GDPRStatement';
@@ -24,7 +24,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/reset-password" element={<CompletePasswordReset/>} />
           <Route path="/forgot-password" element={<ForgotPassword/>}/>
-          <Route path="/" element={<Questionnaire/>}/>
+          <Route path="/" element={<LandingPage/>}/>
           <Route path="/results/:resultId" element={<Results />} />
           <Route path="/scenario-questions" element={<ScenarioQuestion/>}/>
           <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
