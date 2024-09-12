@@ -6,8 +6,11 @@ import GetStartedButton from '../GetStartedButton';
 import SkillsHubImg from '../../images/SkillsHub.png';
 import personIcon from '../../images/person-icon.png';
 import Footer from './Footer';
-
+import AICourseFinder from './AICourseFinder';
 import HubLogo from '../../images/glphubLogo.png'; // Import your hub logo image
+import EmployersSection from './EmployerSection';
+import SkillScansSection from './SkillScanSection';
+import InsightsSection from './InsightsSection';
 
 function LandingHero() {
   return (
@@ -15,8 +18,9 @@ function LandingHero() {
       container
       justifyContent="center"
       alignItems="center"
-      spacing={2}
-      sx={{ height: '100vh', background: 'transparent', paddingBottom: 20, pt:5 }} // Gradient Background
+      spacing={5}
+      sx={{ minHeight: {xs:'100%',sm:'800px'},
+      maxHeight:{sm:'1150px'}, background: 'transparent', paddingBottom:{xs:5,sm:20}, pt:5 }} // Gradient Background
     >
       <Grid
         item
@@ -103,9 +107,9 @@ function FeatureSection() {
         backgroundColor: '#F2F2F2',
         padding: '40px 20px',
         maxWidth: '1100px',
-        margin: { xs: '20px auto 0', sm: '20px auto 0', md: '-150px auto 0' },
-        borderRadius: '16px',
-        boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
+        margin: { xs: '0', sm: '20px auto 0', md: '-150px auto 0' },
+        borderRadius: { xs: 0, sm: '24px'},
+        boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
         position: 'relative',
         zIndex: 3,
       }}
@@ -117,14 +121,14 @@ function FeatureSection() {
           gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
           alignItems: 'center',
           gap: 4,
-          textAlign: { xs: 'center', sm: 'left' },
+          textAlign: { xs: 'left', sm: 'left' },
         }}
       >
         {/* Left Column - Text */}
         <Box>
           <Typography
             variant="h1"
-            sx={{ fontWeight: 'bold', textTransform: 'uppercase', fontSize: '30px', marginBottom: '10px' }}
+            sx={{ fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '10px', fontSize:'30px'}}
           >
             The ultimate library for your career progression
           </Typography>
@@ -149,7 +153,7 @@ function FeatureSection() {
           backgroundColor: '#7856E2',
           borderRadius: '20px',
           padding: '15px 15px',
-          display: 'flex',
+          display: {xs:'none',sm:'flex'},
           alignItems: 'center',
           justifyContent: 'center',
           boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
@@ -185,6 +189,10 @@ export default function LandingPage() {
       {/* Feature Section */}
       <FeatureSection />
 
+      <EmployersSection/>
+      <AICourseFinder/>
+      <SkillScansSection/>
+      <InsightsSection/>
       {/* Footer */}
       <Footer />
     </Box>

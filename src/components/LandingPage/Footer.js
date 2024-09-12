@@ -9,17 +9,20 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import FacebookIcon from '@mui/icons-material/GitHub';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/X';
-import SitemarkIcon from './SitemarkIcon';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
+import YoutubeIcon from '@mui/icons-material/YouTube';
+import SitemarkIcon from './SitemarkIcon';
+import Logo from '../../images/RGB-Logo-digital use.png'
 function Copyright() {
   return (
     <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
       {'Copyright © '}
       <Link color="text.secondary" href="https://mui.com/">
-        Sitemark
+        GLP Training
       </Link>
       &nbsp;
       {new Date().getFullYear()}
@@ -58,7 +61,15 @@ export default function Footer() {
             }}
           >
             <Box sx={{ width: { xs: '100%', sm: '60%' } }}>
-              <SitemarkIcon />
+            <Box
+              component="img"
+              src={Logo}
+              alt="GLP Training Logo"
+              sx={{
+                height: "auto",
+                width: { xs: "160px", sm: "200px" },
+              }}
+            />
               <Typography
                 variant="body2"
                 gutterBottom
@@ -105,24 +116,27 @@ export default function Footer() {
               gap: 1,
             }}
           >
-            <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-              Product
+            <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+              HELP & SUPPORT
             </Typography>
-            <Link color="text.secondary" variant="body2" href="#">
-              Features
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Testimonials
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Highlights
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Pricing
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              FAQs
-            </Link>
+            <Typography color="text.secondary" variant="body2" sx={{ fontWeight: 'bold' }} href="#">
+              GLP HOUSE
+            </Typography>
+            <Typography color="text.secondary" variant="body2" href="#">
+            Barbourne Road Worcester
+            </Typography>
+            <Typography color="text.secondary" variant="body2" href="#">
+            Worcestershire WR1 1RS
+            </Typography>
+            <Typography color="text.secondary" variant="body2" href="#">
+            01905 670884
+            </Typography>
+            <Typography color="text.secondary" variant="body2" href="#">
+            info@glptraining.co.uk
+            </Typography>
+            <Typography color="text.secondary" variant="body2" href="#">
+            Safeguarding
+            </Typography>
           </Box>
           <Box
             sx={{
@@ -131,17 +145,20 @@ export default function Footer() {
               gap: 1,
             }}
           >
-            <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-              Company
+            <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+              COMPANY
             </Typography>
             <Link color="text.secondary" variant="body2" href="#">
               About us
             </Link>
             <Link color="text.secondary" variant="body2" href="#">
-              Careers
+              Contact us
             </Link>
             <Link color="text.secondary" variant="body2" href="#">
-              Press
+              The Building Block
+            </Link>
+            <Link color="text.secondary" variant="body2" href="#">
+            Cranfield SoM
             </Link>
           </Box>
           <Box
@@ -151,17 +168,17 @@ export default function Footer() {
               gap: 1,
             }}
           >
-            <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-              Legal
+            <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+              COMMUNITY
             </Typography>
             <Link color="text.secondary" variant="body2" href="#">
-              Terms
+            Resources
             </Link>
             <Link color="text.secondary" variant="body2" href="#">
-              Privacy
+            Scholarship
             </Link>
             <Link color="text.secondary" variant="body2" href="#">
-              Contact
+            Documentation
             </Link>
           </Box>
         </Box>
@@ -196,11 +213,38 @@ export default function Footer() {
             <IconButton
               color="inherit"
               size="small"
+              href="https://www.linkedin.com/company/mui/"
+              aria-label="LinkedIn"
+              sx={{ alignSelf: 'center' }}
+            >
+              <LinkedInIcon />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              size="small"
+              href="https://github.com/mui"
+              aria-label="GitHub"
+              sx={{ alignSelf: 'center' }}
+            >
+              <InstagramIcon />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              size="small"
               href="https://github.com/mui"
               aria-label="GitHub"
               sx={{ alignSelf: 'center' }}
             >
               <FacebookIcon />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              size="small"
+              href="https://github.com/mui"
+              aria-label="GitHub"
+              sx={{ alignSelf: 'center' }}
+            >
+              <YoutubeIcon />
             </IconButton>
             <IconButton
               color="inherit"
@@ -211,15 +255,7 @@ export default function Footer() {
             >
               <TwitterIcon />
             </IconButton>
-            <IconButton
-              color="inherit"
-              size="small"
-              href="https://www.linkedin.com/company/mui/"
-              aria-label="LinkedIn"
-              sx={{ alignSelf: 'center' }}
-            >
-              <LinkedInIcon />
-            </IconButton>
+            
           </Stack>
         </Box>
       </Container>
