@@ -11,6 +11,7 @@ import CompletePasswordReset from './components/CompletePasswordReset';
 import ScenarioQuestion from './components/Questionnaire/ScenarioQuestion';
 import Results from './components/Questionnaire/Results';
 import AuthContextProvider from './contexts/AuthContext';
+import Dashboard from './components/Dashboard/Dashboard';
 import theme from './theme';
 import { ThemeProvider } from '@mui/material/styles';
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/reset-password" element={<CompletePasswordReset/>} />
           <Route path="/forgot-password" element={<ForgotPassword/>}/>
           <Route path="/" element={<LandingPage/>}/>
+          <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/results/:resultId" element={<Results />} />
           <Route path="/scenario-questions" element={<ScenarioQuestion/>}/>
           <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
